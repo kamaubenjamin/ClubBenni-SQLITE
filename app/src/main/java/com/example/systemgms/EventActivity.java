@@ -2,6 +2,7 @@ package com.example.systemgms;
 
 import android.os.Bundle;
 import android.os.PersistableBundle;
+import android.util.Log;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,11 +11,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class EventActivity extends AppCompatActivity {
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState, @Nullable PersistableBundle persistentState) {
-        super.onCreate(savedInstanceState, persistentState);
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event);
 
-                MyListData[] myListData = new MyListData[] {
+                MyListData[] myListData = new MyListData[]{
                         new MyListData("Email", android.R.drawable.ic_dialog_email),
                         new MyListData("Info", android.R.drawable.ic_dialog_info),
                         new MyListData("Delete", android.R.drawable.ic_delete),
