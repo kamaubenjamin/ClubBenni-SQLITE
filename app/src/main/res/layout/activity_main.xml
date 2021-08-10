@@ -8,13 +8,12 @@
     tools:context=".MainActivity">
 
 
-
     <EditText
         android:id="@+id/username"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="User Name"
-        android:layout_marginTop="50dp"/>
+        android:layout_marginTop="50dp"
+        android:hint="User Name" />
 
     <EditText
         android:id="@+id/password"
@@ -48,6 +47,21 @@
         android:layout_marginTop="50dp"
         android:layout_below="@+id/btnsignup"/>
 
+    <TextView
+        android:id="@+id/textView28"
+        android:layout_width="228dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="94dp"
+        android:layout_marginLeft="94dp"
+        android:layout_marginEnd="99dp"
+        android:layout_marginRight="99dp"
+        android:text="Club Phenus"
+        android:textColor="#4CAF50"
+        android:textSize="34sp" />
 
 
 </RelativeLayout>
