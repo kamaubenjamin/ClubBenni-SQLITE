@@ -13,7 +13,8 @@ public class EventDetailsActivity  extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_eventdetails);
         //Get Details From Bundle passed From MyListAdapter
-        TextView title = (TextView)findViewById(R.id.tvTitle);
+        TextView title = (TextView)findViewById(R.id.textView23);
+
         String eventName = getIntent().getExtras().getString("eventName","");
         title.setText(eventName);
         //optional
