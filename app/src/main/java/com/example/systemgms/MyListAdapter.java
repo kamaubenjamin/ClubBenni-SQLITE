@@ -44,6 +44,19 @@ public class MyListAdapter extends RecyclerView.Adapter<MyListAdapter.ViewHolder
                 bundle.putString("eventName",myListData.getDescription());
                 bundle.putInt("imageName",myListData.getImgId());
                 Intent intent = new Intent(view.getContext(),EventDetailsActivity.class);
+
+                if(myListData.getDescription().contains("ClassicMonday")){
+                    intent = new Intent(view.getContext(),ClassicMonday.class);
+                }
+                if(myListData.getDescription().contains("ThrowBackThursday")){
+                    intent = new Intent(view.getContext(),ThrowbackThursday.class);
+
+                }
+                if(myListData.getDescription().contains("Crazy Friyay")){
+                    intent = new Intent(view.getContext(),CrazyFriday.class);
+
+                }
+
                 intent.putExtras(bundle);
                 view.getContext().startActivity(intent);
                 //Toast.makeText(view.getContext(),"click on item: "+myListData.getDescription(),Toast.LENGTH_LONG).show();
