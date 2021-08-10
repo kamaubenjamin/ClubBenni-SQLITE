@@ -1,8 +1,6 @@
 package com.example.systemgms;
 
 import android.os.Bundle;
-import android.os.PersistableBundle;
-import android.util.Log;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,18 +14,10 @@ public class EventActivity extends AppCompatActivity {
         setContentView(R.layout.activity_event);
 
                 MyListData[] myListData = new MyListData[]{
-                        new MyListData("Email", android.R.drawable.ic_dialog_email),
-                        new MyListData("Info", android.R.drawable.ic_dialog_info),
-                        new MyListData("Delete", android.R.drawable.ic_delete),
-                        new MyListData("Dialer", android.R.drawable.ic_dialog_dialer),
-                        new MyListData("Alert", android.R.drawable.ic_dialog_alert),
-                        new MyListData("Map", android.R.drawable.ic_dialog_map),
-                        new MyListData("Email", android.R.drawable.ic_dialog_email),
-                        new MyListData("Info", android.R.drawable.ic_dialog_info),
-                        new MyListData("Delete", android.R.drawable.ic_delete),
-                        new MyListData("Dialer", android.R.drawable.ic_dialog_dialer),
-                        new MyListData("Alert", android.R.drawable.ic_dialog_alert),
-                        new MyListData("Map", android.R.drawable.ic_dialog_map),
+                        new MyListData("ClassicMonday", android.R.drawable.ic_dialog_info),
+                        new MyListData("ThrowBackThursday", android.R.drawable.ic_dialog_info),
+                        new MyListData("Crazy Friyay", android.R.drawable.ic_dialog_info),
+
                 };
 
                 RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
