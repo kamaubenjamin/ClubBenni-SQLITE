@@ -2,6 +2,8 @@ package com.example.systemgms;
 
       //  import android.support.v7.widget.RecyclerView;
 
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,7 +38,15 @@ public class MyListAdapter extends RecyclerView.Adapter<MyListAdapter.ViewHolder
         holder.relativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(view.getContext(),"click on item: "+myListData.getDescription(),Toast.LENGTH_LONG).show();
+                //move data to next Activity
+                // bundle stores data to be retrived in the next Activity using Intent
+                Bundle bundle = new Bundle();
+                bundle.putString("eventName",myListData.getDescription());
+                bundle.putInt("imageName",myListData.getImgId());
+                Intent intent = new Intent(view.getContext(),EventDetailsActivity.class);
+                intent.putExtras(bundle);
+                view.getContext().startActivity(intent);
+                //Toast.makeText(view.getContext(),"click on item: "+myListData.getDescription(),Toast.LENGTH_LONG).show();
             }
         });
     }
