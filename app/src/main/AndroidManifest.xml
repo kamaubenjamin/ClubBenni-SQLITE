@@ -21,6 +21,9 @@
         <activity android:name=".LoginActivity"/>
         <activity android:name=".EventActivity"/>
         <activity android:name=".EventDetailsActivity"/>
+        <activity android:name=".ClassicMonday"/>
+        <activity android:name=".ThrowbackThursday"/>
+        <activity android:name=".CrazyFriday"/>
 
     </application>
 
