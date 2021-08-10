@@ -57,5 +57,7 @@ public class MyListAdapter extends RecyclerView.Adapter<MyListAdapter.ViewHolder
             this.textView = (TextView) itemView.findViewById(R.id.textView);
             relativeLayout = (RelativeLayout)itemView.findViewById(R.id.relativeLayout);
         }
+
+
     }
 }
