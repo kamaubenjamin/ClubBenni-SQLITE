@@ -10,6 +10,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.systemgms.db.DBHelper;
+import com.example.systemgms.db.Session;
 
 public class CrazyFriday extends AppCompatActivity {
 
@@ -19,6 +20,8 @@ public class CrazyFriday extends AppCompatActivity {
         setContentView(R.layout.activity_crazyfriday);
 
         DBHelper myDb = new DBHelper(this);
+        Session session = new Session(this);
+
         Intent in = new Intent(this,ViewBookings.class);
 
         Button button = (Button)findViewById(R.id.button3);
@@ -26,7 +29,7 @@ public class CrazyFriday extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(CrazyFriday.this,"Lets View",Toast.LENGTH_SHORT).show();
-                myDb.insertBooking("","2","Crazy Friday");
+                myDb.insertBooking("",session.getString("username"),"Crazy Friday");
                 startActivity(in);
             }
         });

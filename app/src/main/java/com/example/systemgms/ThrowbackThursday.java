@@ -9,6 +9,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.systemgms.db.DBHelper;
+import com.example.systemgms.db.Session;
 
 public class ThrowbackThursday extends AppCompatActivity {
 
@@ -19,13 +20,15 @@ public class ThrowbackThursday extends AppCompatActivity {
         setContentView(R.layout.activity_throwbackthursday);
 
         DBHelper myDb = new DBHelper(this);
+        Session session = new Session(this);
+
         Intent in = new Intent(this,ViewBookings.class);
 
         Button book= findViewById(R.id.button3);
         book.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                myDb.insertBooking("", "2", "Classic Monday");
+                myDb.insertBooking("", session.getString("username"), "Classic Monday");
                 startActivity(in);
             }
         });

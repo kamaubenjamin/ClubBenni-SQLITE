@@ -10,6 +10,9 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.systemgms.db.DBHelper;
+import com.example.systemgms.db.Session;
+
+import java.util.ArrayList;
 
 //package com.learnandroid.loginsqlite;
 
@@ -26,6 +29,7 @@ public class LoginActivity extends AppCompatActivity {
         password = (EditText) findViewById(R.id.password1);
         btnlogin = (Button) findViewById(R.id.btnsignin1);
         DB = new DBHelper(this);
+        Session session = new Session(this);
 
         btnlogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -39,6 +43,11 @@ public class LoginActivity extends AppCompatActivity {
                 else{
                     Boolean checkuserpass = DB.checkusernamepassword(user, pass);
                     if(checkuserpass==true){
+                        ArrayList<String> userDetails = DB.checkuserDetails(user,pass);
+                        if (userDetails.size()>1){
+                        session.setString("username",userDetails.get(0));
+                        session.setString("usertype",userDetails.get(1));
+                        }
                         Toast.makeText(LoginActivity.this, "Sign in successfull", Toast.LENGTH_SHORT).show();
                         Intent intent  = new Intent(getApplicationContext(), EventActivity.class);
                         startActivity(intent);
