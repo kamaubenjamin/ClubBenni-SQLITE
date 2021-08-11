@@ -24,6 +24,7 @@ public class CustomerView extends AppCompatActivity {
         Session session=new Session(this);
         Intent in = new Intent(this, ViewBookings.class);
         Intent in2 = new Intent(this, EventActivity.class);
+        Intent in3 = new Intent(this, ViewUsers.class);
 
         Button button = (Button) findViewById(R.id.viewbookings);
         Button button2 = (Button) findViewById(R.id.viewevents);
@@ -54,6 +55,15 @@ public class CustomerView extends AppCompatActivity {
                 }
             });
             linearLayout.setBackgroundColor(Color.parseColor("#cccccc"));
+
+            viewUsers.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(CustomerView.this, "Lets View the Users Available", Toast.LENGTH_SHORT).show();
+                    startActivity(in3);
+                }
+            });
+
         }
     }
 }
