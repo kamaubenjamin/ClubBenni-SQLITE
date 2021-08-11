@@ -26,7 +26,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
         MyDB.execSQL("create Table events(eventID INTEGER primary key AUTOINCREMENT, name TEXT,  time TEXT)");
 
-        MyDB.execSQL("create Table bookings(bookingsID INTEGER primary key AUTOINCREMENT, username TEXT, event TEXT)");
+        MyDB.execSQL("create Table bookings(bookingsID INTEGER primary key AUTOINCREMENT, username TEXT, event TEXT ,status TEXT)");
 
     }
 
@@ -65,10 +65,26 @@ public class DBHelper extends SQLiteOpenHelper {
         //contentValues.put("bookingsID", bookingsID);
         contentValues.put("username", username);
         contentValues.put("event", event);
+        contentValues.put("status", "1");
         long result = MyDB.insert("bookings", null, contentValues);
         if (result == -1) return false;
         else
             return true;
+    }
+    public boolean updateBookings ( String status,String ID) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("status", status);
+
+        db.update("bookings", contentValues, "bookingsID = ? ", new String[] {ID} );
+        return true;
+    }
+
+    public Integer deleteContact (Integer id) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        return db.delete("contacts",
+                "id = ? ",
+                new String[] { Integer.toString(id) });
     }
 
     public Boolean checkusername(String username) {
@@ -87,7 +103,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
         //hp = new HashMap();
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor res = db.rawQuery("select * from bookings", null);
+        Cursor res = db.rawQuery("select * from bookings where status = ?", new String[]{"1"});
         res.moveToFirst();
 
         while (res.isAfterLast() == false) {
@@ -106,7 +122,7 @@ public class DBHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
         //Cursor res = db.rawQuery("select * from bookings", null);
        // Cursor res = db.rawQuery("select * from bookings where username=" + username + "", null);
-        Cursor res = db.rawQuery("Select * from bookings where username = ?", new String[]{username});
+        Cursor res = db.rawQuery("Select * from bookings where username = ? and status = ?", new String[]{username,"1"});
 
         res.moveToFirst();
 

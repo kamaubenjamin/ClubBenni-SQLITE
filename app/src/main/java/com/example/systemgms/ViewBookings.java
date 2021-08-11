@@ -28,6 +28,8 @@ public class ViewBookings  extends AppCompatActivity {
             isAdmin = false;
          array_list = myDb.getBookingByUser(session.getString("username"));
         }
+        //call function update
+        //myDb.updateBookings("2","21");
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         MyBookingsAdapter adapter = new MyBookingsAdapter(array_list,isAdmin);
         recyclerView.setHasFixedSize(true);

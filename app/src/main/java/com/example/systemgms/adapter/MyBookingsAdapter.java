@@ -2,7 +2,9 @@ package com.example.systemgms.adapter;
 
       //  import android.support.v7.widget.RecyclerView;
 
-import android.os.Bundle;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +15,8 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.systemgms.R;
+import com.example.systemgms.ViewBookings;
+import com.example.systemgms.db.DBHelper;
 import com.example.systemgms.model.Bookings;
 
 import java.util.ArrayList;
@@ -47,29 +51,22 @@ public class MyBookingsAdapter extends RecyclerView.Adapter<MyBookingsAdapter.Vi
         holder.relativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //move data to next Activity
-                // bundle stores data to be retrived in the next Activity using Intent
-                Bundle bundle = new Bundle();
-                bundle.putString("eventName",myListData.getEventName());
-//                bundle.putInt("imageName",myListData.getImgIgId());
-               // Intent intent = new Intent(view.getContext(), EventDetailsActivity.class);
-
-//                if(myListData.getDescription().contains("ClassicMonday")){
-//                    intent = new Intent(view.getContext(), ClassicMonday.class);
-//                }
-//                if(myListData.getDescription().contains("ThrowBackThursday")){
-//                    intent = new Intent(view.getContext(), ThrowbackThursday.class);
-//
-//                }
-//                if(myListData.getDescription().contains("Crazy Friyay")){
-//                    intent = new Intent(view.getContext(), CrazyFriday.class);
-//
-//                }
-//
-//                intent.putExtras(bundle);
-//                view.getContext().startActivity(intent);
-                //Toast.makeText(view.getContext(),"click on item: "+myListData.getDescription(),Toast.LENGTH_LONG).show();
-            }
+                AlertDialog.Builder alert = new AlertDialog.Builder(view.getContext());
+                alert.setTitle("Cancel Booking");
+                alert.setMessage("Are you sure want to cancel "+myListData.getEventName());
+                alert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        //update and Delete
+                        DBHelper myDbb =new DBHelper(view.getContext());
+                        myDbb.updateBookings("2",""+myListData.getBookingId());
+                        Intent intent = new Intent(view.getContext(), ViewBookings.class);
+                        view.getContext().startActivity(intent);
+                    }
+                });
+                alert.setNegativeButton("No",null);
+                alert.show();
+              }
         });
     }
 
