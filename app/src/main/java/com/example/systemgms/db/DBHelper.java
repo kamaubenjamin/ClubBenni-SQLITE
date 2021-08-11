@@ -89,7 +89,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
         while(res.isAfterLast() == false){
             array_list.add(new Bookings(res.getString(res.getColumnIndex("event")),
-                    res.getInt(res.getColumnIndex("bookingsId")),
+                    res.getInt(res.getColumnIndex("bookingsID")),
                     res.getString(res.getColumnIndex("username"))));
             res.moveToNext();
         }
