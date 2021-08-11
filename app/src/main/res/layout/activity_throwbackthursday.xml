@@ -44,20 +44,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:paddingLeft="16dp"
-        android:paddingRight="16dp">
-        <Button
-            android:id="@+id/button"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:text="Book" />
-
-        <Button
-            android:id="@+id/button2"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:text="View"
-            android:layout_marginLeft="44dp"/>
-    </LinearLayout>
+        android:paddingRight="16dp"/>
 
 
     <TextView
@@ -98,16 +85,9 @@
 
         <Button
             android:id="@+id/button3"
-            android:layout_width="100dp"
+            android:layout_width="346dp"
             android:layout_height="wrap_content"
             android:text="Book" />
-
-        <Button
-            android:id="@+id/button4"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:text="View"
-            android:layout_marginLeft="44dp"/>
 
     </LinearLayout>
 
