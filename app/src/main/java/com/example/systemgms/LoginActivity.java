@@ -49,7 +49,7 @@ public class LoginActivity extends AppCompatActivity {
                         session.setString("usertype",userDetails.get(1));
                         }
                         Toast.makeText(LoginActivity.this, "Sign in successfull", Toast.LENGTH_SHORT).show();
-                        Intent intent  = new Intent(getApplicationContext(), EventActivity.class);
+                        Intent intent  = new Intent(getApplicationContext(), CustomerView.class);
                         startActivity(intent);
                         //Intent intent = new Intent().setClassName(getActivity(), LoginActivity.class);
                       //  getActivity().startActivity(intent);

@@ -28,7 +28,7 @@ public class ThrowbackThursday extends AppCompatActivity {
         book.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                myDb.insertBooking("", session.getString("username"), "Classic Monday");
+                myDb.insertBooking("", session.getString("username"), "ThrowbackThursday");
                 startActivity(in);
             }
         });
