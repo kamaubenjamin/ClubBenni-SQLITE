@@ -17,9 +17,9 @@ public class ClassicMonday extends AppCompatActivity {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_classicmonday);
+        DBHelper myDb= new DBHelper(this);
+        Session session=new Session(this);
 
-        DBHelper myDb = new DBHelper(this);
-        Session session = new Session(this);
         Intent in = new Intent(this,ViewBookings.class);
 
         Button book= findViewById(R.id.button3);

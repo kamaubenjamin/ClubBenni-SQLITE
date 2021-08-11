@@ -8,6 +8,7 @@ public class Session {
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;
     public Session(Context context){
+        //initiate shared preference
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
         editor = sharedPreferences.edit();
 

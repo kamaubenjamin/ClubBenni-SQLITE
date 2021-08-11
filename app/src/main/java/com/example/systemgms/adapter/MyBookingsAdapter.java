@@ -20,15 +20,17 @@ import java.util.ArrayList;
 
 public class MyBookingsAdapter extends RecyclerView.Adapter<MyBookingsAdapter.ViewHolder>{
     private ArrayList<Bookings> listdata;
+    Boolean isAdmin;
 
     // RecyclerView recyclerView;
-    public MyBookingsAdapter(ArrayList<Bookings> listdata) {
+    public MyBookingsAdapter(ArrayList<Bookings> listdata,Boolean isAdmin) {
         this.listdata = listdata;
+        this.isAdmin = isAdmin;
     }
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
-        View listItem= layoutInflater.inflate(R.layout.list_item, parent, false);
+        View listItem= layoutInflater.inflate(R.layout.booking_item, parent, false);
         ViewHolder viewHolder = new ViewHolder(listItem);
         return viewHolder;
     }
@@ -37,6 +39,10 @@ public class MyBookingsAdapter extends RecyclerView.Adapter<MyBookingsAdapter.Vi
     public void onBindViewHolder(ViewHolder holder, int position) {
         final Bookings myListData = listdata.get(position);
         holder.textView.setText(myListData.getEventName());
+        if (isAdmin){
+            holder.tvUsername.setText(myListData.getUsername());
+            holder.tvUsername.setVisibility(View.VISIBLE);
+        }
 //        holder.imageView.setImageResource(listdata[position].getImgId());
         holder.relativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -76,11 +82,13 @@ public class MyBookingsAdapter extends RecyclerView.Adapter<MyBookingsAdapter.Vi
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public ImageView imageView;
         public TextView textView;
+        public TextView tvUsername;
         public RelativeLayout relativeLayout;
         public ViewHolder(View itemView) {
             super(itemView);
             this.imageView = (ImageView) itemView.findViewById(R.id.imageView);
             this.textView = (TextView) itemView.findViewById(R.id.textView);
+            this.tvUsername = (TextView) itemView.findViewById(R.id.tvUsername);
             relativeLayout = (RelativeLayout)itemView.findViewById(R.id.relativeLayout);
         }
 

@@ -98,12 +98,33 @@ public class DBHelper extends SQLiteOpenHelper {
         }
         return array_list;
     }
+    //returns an array of Type Bookings
+    public ArrayList<Bookings> getBookingByUser(String username) {
+        ArrayList<Bookings> array_list = new ArrayList<Bookings>();
+
+        //hp = new HashMap();
+        SQLiteDatabase db = this.getReadableDatabase();
+        //Cursor res = db.rawQuery("select * from bookings", null);
+       // Cursor res = db.rawQuery("select * from bookings where username=" + username + "", null);
+        Cursor res = db.rawQuery("Select * from bookings where username = ?", new String[]{username});
+
+        res.moveToFirst();
+
+        while (res.isAfterLast() == false) {
+            array_list.add(new Bookings(res.getString(res.getColumnIndex("event")),
+                    res.getInt(res.getColumnIndex("bookingsID")),
+                    res.getString(res.getColumnIndex("username"))));
+            res.moveToNext();
+        }
+        return array_list;
+    }
 
     public Cursor getData(int id) {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor res = db.rawQuery("select * from bookings where id=" + id + "", null);
         return res;
     }
+
 
     public Boolean checkusernamepassword(String username, String password) {
         SQLiteDatabase MyDB = this.getWritableDatabase();
@@ -128,8 +149,8 @@ public class DBHelper extends SQLiteOpenHelper {
                 if (array_list.size() < 2) {
                     array_list.add(res.getString(res.getColumnIndex("username")));
                     array_list.add(res.getString(res.getColumnIndex("usertype")));
-                    res.moveToNext();
                 }
+                res.moveToNext();
             }
         }
         return array_list;

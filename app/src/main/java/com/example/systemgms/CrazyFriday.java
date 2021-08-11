@@ -18,9 +18,9 @@ public class CrazyFriday extends AppCompatActivity {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_crazyfriday);
+        DBHelper myDb= new DBHelper(this);
+        Session session=new Session(this);
 
-        DBHelper myDb = new DBHelper(this);
-        Session session = new Session(this);
 
         Intent in = new Intent(this,ViewBookings.class);
 

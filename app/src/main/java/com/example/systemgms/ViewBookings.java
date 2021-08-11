@@ -9,29 +9,27 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.systemgms.adapter.MyBookingsAdapter;
 import com.example.systemgms.db.DBHelper;
+import com.example.systemgms.db.Session;
 import com.example.systemgms.model.Bookings;
 
 import java.util.ArrayList;
 
 public class ViewBookings  extends AppCompatActivity {
-DBHelper mydb;
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_viewbookings);
-
-        mydb = new DBHelper(this);
-//        ArrayList array_list = mydb.getAllCotacts();
-//        ArrayAdapter arrayAdapter=new ArrayAdapter(this,android.R.layout.simple_list_item_1, array_list);
-//
-//        ListView obj = (ListView) findViewById(R.id.listView1);
-//        obj.setAdapter(arrayAdapter);//
-        ArrayList<Bookings> array_list = mydb.getAllBookings();
+        DBHelper myDb= new DBHelper(this);
+        Session session=new Session(this);
+        ArrayList<Bookings> array_list = myDb.getAllBookings();
         Log.d("DBBookings",array_list.toString());
-//        ListView obj = (ListView) findViewById(R.id.listView1);
-//        obj.setAdapter(arrayAdapter);
+        Boolean isAdmin = true;
+        if (session.getString("usertype").equals("2")) {
+            isAdmin = false;
+         array_list = myDb.getBookingByUser(session.getString("username"));
+        }
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
-        MyBookingsAdapter adapter = new MyBookingsAdapter(array_list);
+        MyBookingsAdapter adapter = new MyBookingsAdapter(array_list,isAdmin);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
