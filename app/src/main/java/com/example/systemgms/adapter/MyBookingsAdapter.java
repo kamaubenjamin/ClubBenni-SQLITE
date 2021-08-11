@@ -1,8 +1,7 @@
-package com.example.systemgms;
+package com.example.systemgms.adapter;
 
       //  import android.support.v7.widget.RecyclerView;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,16 +9,20 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.systemgms.R;
+import com.example.systemgms.model.Bookings;
 
-public class MyListAdapter extends RecyclerView.Adapter<MyListAdapter.ViewHolder>{
-    private MyListData[] listdata;
+import java.util.ArrayList;
+
+
+public class MyBookingsAdapter extends RecyclerView.Adapter<MyBookingsAdapter.ViewHolder>{
+    private ArrayList<Bookings> listdata;
 
     // RecyclerView recyclerView;
-    public MyListAdapter(MyListData[] listdata) {
+    public MyBookingsAdapter(ArrayList<Bookings> listdata) {
         this.listdata = listdata;
     }
     @Override
@@ -32,33 +35,33 @@ public class MyListAdapter extends RecyclerView.Adapter<MyListAdapter.ViewHolder
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        final MyListData myListData = listdata[position];
-        holder.textView.setText(listdata[position].getDescription());
-        holder.imageView.setImageResource(listdata[position].getImgId());
+        final Bookings myListData = listdata.get(position);
+        holder.textView.setText(myListData.getEventName());
+//        holder.imageView.setImageResource(listdata[position].getImgId());
         holder.relativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //move data to next Activity
                 // bundle stores data to be retrived in the next Activity using Intent
                 Bundle bundle = new Bundle();
-                bundle.putString("eventName",myListData.getDescription());
-                bundle.putInt("imageName",myListData.getImgId());
-                Intent intent = new Intent(view.getContext(),EventDetailsActivity.class);
+                bundle.putString("eventName",myListData.getEventName());
+//                bundle.putInt("imageName",myListData.getImgIgId());
+               // Intent intent = new Intent(view.getContext(), EventDetailsActivity.class);
 
-                if(myListData.getDescription().contains("ClassicMonday")){
-                    intent = new Intent(view.getContext(),ClassicMonday.class);
-                }
-                if(myListData.getDescription().contains("ThrowBackThursday")){
-                    intent = new Intent(view.getContext(),ThrowbackThursday.class);
-
-                }
-                if(myListData.getDescription().contains("Crazy Friyay")){
-                    intent = new Intent(view.getContext(),CrazyFriday.class);
-
-                }
-
-                intent.putExtras(bundle);
-                view.getContext().startActivity(intent);
+//                if(myListData.getDescription().contains("ClassicMonday")){
+//                    intent = new Intent(view.getContext(), ClassicMonday.class);
+//                }
+//                if(myListData.getDescription().contains("ThrowBackThursday")){
+//                    intent = new Intent(view.getContext(), ThrowbackThursday.class);
+//
+//                }
+//                if(myListData.getDescription().contains("Crazy Friyay")){
+//                    intent = new Intent(view.getContext(), CrazyFriday.class);
+//
+//                }
+//
+//                intent.putExtras(bundle);
+//                view.getContext().startActivity(intent);
                 //Toast.makeText(view.getContext(),"click on item: "+myListData.getDescription(),Toast.LENGTH_LONG).show();
             }
         });
@@ -67,7 +70,7 @@ public class MyListAdapter extends RecyclerView.Adapter<MyListAdapter.ViewHolder
 
     @Override
     public int getItemCount() {
-        return listdata.length;
+        return listdata.size();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {

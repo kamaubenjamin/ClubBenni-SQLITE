@@ -7,11 +7,10 @@
     android:orientation="vertical" >
 
 
-
     <TextView
         android:id="@+id/textView2"
         android:layout_width="411dp"
-        android:layout_height="100dp"
+        android:layout_height="65dp"
         android:text="FLASHBACK FRIYAY"
         android:textColor="#FA0C0C"
         android:textSize="34sp"

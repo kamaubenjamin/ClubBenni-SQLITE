@@ -39,6 +39,7 @@
         android:layout_marginTop="50dp"
         android:layout_below="@+id/repassword"/>
 
+
     <Button
         android:id="@+id/btnsignin"
         android:layout_width="match_parent"
@@ -62,6 +63,16 @@
         android:text="Club Phenus"
         android:textColor="#4CAF50"
         android:textSize="34sp" />
+
+    <CheckBox
+        android:id="@+id/admin"
+        android:layout_width="171dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/repassword"
+        android:layout_marginTop="-1dp"
+        android:text="Admin" />
+
+
 
 
 </RelativeLayout>

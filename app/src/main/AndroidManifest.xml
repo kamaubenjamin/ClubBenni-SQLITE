@@ -24,6 +24,8 @@
         <activity android:name=".ClassicMonday"/>
         <activity android:name=".ThrowbackThursday"/>
         <activity android:name=".CrazyFriday"/>
+        <activity android:name=".CustomerView"/>
+        <activity android:name=".ViewBookings"/>
 
     </application>
 

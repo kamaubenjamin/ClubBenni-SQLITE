@@ -1,4 +1,4 @@
-package com.example.systemgms;
+package com.example.systemgms.model;
 
 public class MyListData {
 
