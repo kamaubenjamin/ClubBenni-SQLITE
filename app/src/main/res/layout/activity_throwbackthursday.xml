@@ -1,140 +1,132 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:orientation="vertical" >
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="411dp"
+        android:layout_height="100dp"
+        android:text="ThrowBack Thursday"
+        android:textColor="#FA0C0C"
+        android:textSize="34sp"
+        android:textStyle="bold|italic" />
+    <TextView
+        android:id="@+id/textView3"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp">
+        android:layout_height="wrap_content"
+        android:text="NORMAL SERVICES"
+        android:textColor="#3F51B5"
+        android:textSize="26sp"
+        android:padding="22dp"/>
 
-        <TextView
-            android:id="@+id/textView24"
-            android:layout_width="323dp"
-            android:layout_height="53dp"
-            android:text="Notice: ThrowBack Musics On Play..Lets take ourselves to the good old days"
-            android:textColor="#E91E63"
-            android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.295"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="641dp" />
+    <TextView
+        android:id="@+id/textView4"
 
+        android:layout_width="match_parent"
+        android:layout_height="78dp"
+        android:text="Cocktails @ 20% Discount as From 8:00 pm- "
+        android:textSize="26sp"
+        />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="match_parent"
+        android:layout_height="73dp"
+        android:text="Fries + Drinks Package @ 10% discount from 8:00pm-"
+        android:textSize="26sp" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp">
         <Button
-            android:id="@+id/button3"
-            android:layout_width="wrap_content"
+            android:id="@+id/button"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:text="View"
-            tools:layout_editor_absoluteX="258dp"
-            tools:layout_editor_absoluteY="548dp" />
+            android:text="Book" />
 
         <Button
             android:id="@+id/button2"
-            android:layout_width="wrap_content"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:text="Book"
-            tools:layout_editor_absoluteX="26dp"
-            tools:layout_editor_absoluteY="548dp" />
+            android:text="View"
+            android:layout_marginLeft="44dp"/>
+    </LinearLayout>
 
-        <TextView
-            android:id="@+id/textView16"
-            android:layout_width="323dp"
-            android:layout_height="53dp"
-            android:text="Exclusive Private Dance Service"
-            android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.329"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="495dp" />
-
-        <TextView
-            android:id="@+id/textView5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="NORMAL SERVICES"
-            android:textColor="#3F51B5"
-            android:textSize="20sp"
-            tools:layout_editor_absoluteX="116dp"
-            tools:layout_editor_absoluteY="72dp" />
-
-        <TextView
-            android:id="@+id/textView11"
-            android:layout_width="314dp"
-            android:layout_height="0dp"
-            android:fontFamily="cursive"
-            android:text="ThrowBack Thursday"
-            android:textColor="#F60909"
-            android:textSize="34sp"
-            tools:layout_editor_absoluteX="43dp"
-            tools:layout_editor_absoluteY="11dp" />
-
-        <TextView
-            android:id="@+id/textView9"
-            android:layout_width="323dp"
-            android:layout_height="53dp"
-            android:text="Fries + Drinks Package @ 10% discount as From 5:00pm"
-            android:textSize="16sp"
-            tools:layout_editor_absoluteX="29dp"
-            tools:layout_editor_absoluteY="421dp" />
-
-        <TextView
-            android:id="@+id/textView13"
-            android:layout_width="180dp"
-            android:layout_height="36dp"
-            android:text="VIP SERVICES"
-            android:textColor="#9C27B0"
-            android:textColorHighlight="#9C27B0"
-            android:textSize="24sp"
-            tools:layout_editor_absoluteX="114dp"
-            tools:layout_editor_absoluteY="311dp" />
-
-        <TextView
-            android:id="@+id/textView12"
-            android:layout_width="331dp"
-            android:layout_height="58dp"
-            android:text="Cocktails @ 20% Discount as From 8:00 pm- "
-            android:textSize="16sp"
-            tools:layout_editor_absoluteX="26dp"
-            tools:layout_editor_absoluteY="113dp" />
-
-        <TextView
-            android:id="@+id/textView15"
-            android:layout_width="323dp"
-            android:layout_height="53dp"
-            android:text="Fries + Drinks Package @ 10% discount from 8:00pm-"
-            android:textSize="16sp"
-            tools:layout_editor_absoluteX="29dp"
-            tools:layout_editor_absoluteY="171dp" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView
-        android:id="@+id/textView10"
-        android:layout_width="331dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="VIP SERVICES"
+        android:textSize="33dp"/>
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="match_parent"
         android:layout_height="58dp"
         android:text="Cocktails @ 20% Discount as From 5:00 pm "
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.362"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="353dp" />
+        app:layout_constraintStart_toStartOf="parent" />
+    <TextView
+        android:id="@+id/textView17"
+        android:layout_width="match_parent"
+        android:layout_height="53dp"
+        android:text="Fries + Drinks Package @ 10% discount as From 5:00pm"
+        android:textSize="16sp" />
 
-    <Button
-        android:id="@+id/button7"
-        android:layout_width="wrap_content"
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="match_parent"
+        android:layout_height="53dp"
+        android:text="Private Dance as From 5:00pm"
+        android:textSize="16sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Book"
-        tools:layout_editor_absoluteX="29dp"
-        tools:layout_editor_absoluteY="233dp" />
+        android:orientation="horizontal"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp">
 
-    <Button
-        android:id="@+id/button8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="View"
-        tools:layout_editor_absoluteX="258dp"
-        tools:layout_editor_absoluteY="233dp" />
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="Book" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="View"
+            android:layout_marginLeft="44dp"/>
+
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/textView18"
+
+        android:layout_width="match_parent"
+        android:layout_height="53dp"
+        android:text= "Notice:Classics ANd Great Hits.."
+        android:textColor="#E91E63"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.295"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+</LinearLayout>
+
+
+
